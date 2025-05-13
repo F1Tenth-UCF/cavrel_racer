@@ -22,10 +22,11 @@
 
 '''
 Author: Hongrui Zheng
+Edited: Israel Charles
 '''
 
-# gym imports
-import gym
+# gymnasium imports
+import gymnasium as gym
 from gym import error, spaces, utils
 from gym.utils import seeding
 
