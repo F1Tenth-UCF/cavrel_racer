@@ -65,6 +65,19 @@ This guide walks you through configuring your system to set up the F1Tenth Gym R
    ```bash
    pip3 install -e .
    ```
+   > NOTE: If running the above gives the following error
+   >
+   > ```bash
+   > python setup.py egg_info did not run successfully
+   > ... Unknown distribution option: 'test_require' ...
+   > ```
+   >
+   > Run the following:
+   > ```bash
+   > pip3 install setuptools==65.5.0 pip==21
+   > pip3 install wheel==0.38.0
+   > pip3 install -e .
+   > ```
 
 ### Setting Up ROS Environment for F1tenth Gym
 
