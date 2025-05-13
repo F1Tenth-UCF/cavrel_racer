@@ -34,7 +34,7 @@ from geometry_msgs.msg import Quaternion
 from ackermann_msgs.msg import AckermannDriveStamped
 from tf2_ros import TransformBroadcaster
 
-import gym
+import gymnasium
 import numpy as np
 from transforms3d import euler
 
