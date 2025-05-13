@@ -1,16 +1,23 @@
-# Setting Up F1Tenth Gym ROS
+# CAVREL Racer
+
+This is the RoboRacer (F1TENTH) repo of the CAVREL Team. The repo has the following components
+- The F1TENTH Gym Platform `f1tenth_gym`
+- The simulation environment leveraging the F1TENTH Gym through a ROS bridge `sim_ws`
+- The control software stack for the **CAVREL Racer** `racer_ws`
+
+## Setting Up F1Tenth Gym ROS Simulation Environment
 
 This guide walks you through configuring your system to set up the F1Tenth Gym ROS environment [^1]. This repo also content some control algorithms and some maps as well.
 
--- *Last Tested: 05/12/2025*
+-- *Last Tested: 05/13/2025*
 
-## Prerequisites
+### Prerequisites
 
 - **Ubuntu 20.04 (Focal Fossa)** or **Ubuntu 22.04 (Jammy Jellyfish)** environment
 - **ROS 2 Foxy Fitzroy** or **ROS 2 Humble Hawksbill**
 - **Python 3** *(Comes with Ros 2)*
 
-## System preparation
+### System preparation
 
 1. **Update and Upgrade System Packages:**
 
@@ -24,7 +31,7 @@ This guide walks you through configuring your system to set up the F1Tenth Gym R
    sudo apt install python3-pip
    ```
 
-## Setting Up F1tenth Gym
+### Setting Up F1tenth Gym
 
 1. **Navigate to the Home Folder or Desired Directory:**
 
@@ -45,7 +52,7 @@ This guide walks you through configuring your system to set up the F1Tenth Gym R
    pip3 install -e .
    ```
 
-## Setting Up ROS Environment for F1tenth Gym
+### Setting Up ROS Environment for F1tenth Gym
 
 1. **Create a Workspace:**
 
@@ -106,7 +113,7 @@ This guide walks you through configuring your system to set up the F1Tenth Gym R
    colcon build
    ```
 
-## Run the Simulation Environment
+### Run the Simulation Environment
 
 1. **Source the ROS 2 Setup Script if not Already Sourced**
 
@@ -157,3 +164,4 @@ To run it, make sure `kb_teleop` is set to `True` in `sim.yaml`. Open another te
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 Then, press `i` to move forward, `u` and `o` to move forward and turn, `,` to move backwards, `m` and `.` to move backwards and turn, and `k` to stop in the terminal window running the teleop node.
+
