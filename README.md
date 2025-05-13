@@ -5,19 +5,13 @@ This is the RoboRacer (F1TENTH) repo of the CAVREL Team. The repo has the follow
 - The simulation environment leveraging the F1TENTH Gym through a ROS bridge `sim_ws`
 - The control software stack for the **CAVREL Racer** `racer_ws`
 
-## Setting Up F1Tenth Gym ROS Simulation Environment
-
-This guide walks you through configuring your system to set up the F1Tenth Gym ROS environment [^1]. This repo also content some control algorithms and some maps as well.
-
--- *Last Tested: 05/13/2025*
-
-### Prerequisites
+## Prerequisites
 
 - **Ubuntu 20.04 (Focal Fossa)** or **Ubuntu 22.04 (Jammy Jellyfish)** environment
 - **ROS 2 Foxy Fitzroy** or **ROS 2 Humble Hawksbill**
 - **Python 3** *(Comes with Ros 2)*
 
-### System preparation
+## System preparation
 
 1. **Update and Upgrade System Packages:**
 
@@ -30,8 +24,7 @@ This guide walks you through configuring your system to set up the F1Tenth Gym R
    ```bash
    sudo apt install python3-pip
    ```
-
-### Setting Up F1tenth Gym
+### Download the Repo
 
 1. **Navigate to the Home Folder or Desired Directory:**
 
@@ -39,10 +32,29 @@ This guide walks you through configuring your system to set up the F1Tenth Gym R
    cd $HOME
    ```
 
-2. **Clone the F1Tenth Gym Repository:**
+2. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/f1tenth/f1tenth_gym
+   git clone https://github.com/f1tenth-ucf/cavrel_racer
+   ```
+
+## Setting Up F1Tenth Gym ROS Simulation Environment
+
+This guide walks you through configuring your system to set up the F1Tenth Gym ROS environment [^1]. This repo also content some control algorithms and some maps as well.
+
+-- *Last Tested: 05/13/2025*
+
+### Setting Up F1tenth Gym
+
+1. **Navigate to the Folder that has the repository:**
+
+   ```bash
+   cd cavrel_racer
+   ```
+
+2. **Navigate to the F1Tenth Gym folder:**
+
+   ```bash
    cd f1tenth_gym
    ```
 
@@ -54,28 +66,21 @@ This guide walks you through configuring your system to set up the F1Tenth Gym R
 
 ### Setting Up ROS Environment for F1tenth Gym
 
-1. **Create a Workspace:**
+1. **Go to the repository parent folder and navigate to the f1tenth_gym_ros folder:**
 
    ```bash
-   cd $HOME && mkdir -p sim_ws/src
+   cd sim_ws/src/f1tenth_gym_ros
    ```
 
-2. **Clone the F1Tenth Gym ROS Repository into the Workspace:**
+2. **Confirm/Update the Map Path Parameter:**
 
-   ```bash
-   cd $HOME/sim_ws/src
-   git clone https://github.com/f1tenth-ucf/f1tenth_gym_ros
-   ```
-
-3. **Confirm/Update the Map Path Parameter:**
-
-    - Open the `sim.yaml` file located in your cloned repository at `config/sim.yaml`.
+    - Open the `sim.yaml` file located in the folder at `config/sim.yaml`.
     - Change the map_path parameter to point to the correct location:
     - The maps are in the `map` folder
 
       ex:
       ```bash
-      map_path: "<your_home_dir>/sim_ws/src/f1tenth_gym_ros/maps/levine"
+      map_path: "<your_home_dir>/cavrel_racer/sim_ws/src/f1tenth_gym_ros/maps/levine"
       ```
 
 4. **Initialize and Update `rosdep`:**
@@ -95,7 +100,7 @@ This guide walks you through configuring your system to set up the F1Tenth Gym R
    rosdep update
    ```
 
-5. **Navigate to the Top Level of the Simulation Workspace Folder `sim_ws` and Install ROS Dependencies:**
+5. **Navigate to the Simulation's Top Level Folder `sim_ws` and Install ROS Dependencies:**
 
    **For ROS2 Foxy:**
    ```bash
@@ -116,6 +121,8 @@ This guide walks you through configuring your system to set up the F1Tenth Gym R
 ### Run the Simulation Environment
 
 1. **Source the ROS 2 Setup Script if not Already Sourced**
+   
+   ***Replace `.bash` with `.sh` or `.zsh` depending on your terminal***
 
    **For ROS2 Foxy:**
    ```bash
@@ -127,7 +134,7 @@ This guide walks you through configuring your system to set up the F1Tenth Gym R
    source /opt/ros/humble/setup.bash
    ```
 
-2. **Navigate to the Top Level of the Simulation Workspace Folder `sim_ws`and Source the Local Workspace Setup Script:**
+2. **Navigate to the Simulation's Top Level Folder `sim_ws` and Source the Local Workspace Setup Script:**
 
    ```bash
    source install/local_setup.bash
@@ -141,7 +148,7 @@ This guide walks you through configuring your system to set up the F1Tenth Gym R
 
    **An rviz window should pop up showing the simulation**
 
-# Topics published by the simulation
+### Topics published by the simulation
 
 `/scan`: The ego agent's laser scan
 
@@ -151,11 +158,11 @@ This guide walks you through configuring your system to set up the F1Tenth Gym R
 
 A `tf` tree is also maintained.
 
-# Topics subscribed by the simulation
+### Topics subscribed by the simulation
 
 `/drive`: The ego agent's drive command via `AckermannDriveStamped` messages
 
-# Keyboard Teleop
+### Keyboard Teleop
 
 The keyboard teleop node from `teleop_twist_keyboard` is also installed as part of the simulation's dependency. 
 
@@ -166,3 +173,24 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 Then, press `i` to move forward, `u` and `o` to move forward and turn, `,` to move backwards, `m` and `.` to move backwards and turn, and `k` to stop in the terminal window running the teleop node.
 
 [^1]: Those set of instructions are based on the [Installation Instruction](https://github.com/f1tenth/f1tenth_gym_ros) for F1Tenth Gym ROS Simulation as of 08/28/2024
+
+
+## Run CAVREL Racer Control Algorithm
+
+1. Navigate to the top level parent folder of the repository `cavrel_racer`
+2. Go to the `racer_ws`
+3. Build the workspace
+
+   ```bash
+   colcon build
+   ```
+
+4. Run the desired control node
+
+   ex:
+
+   ```bash
+   ros2 run gap_follow gap_follow_node
+   ```
+
+**If you are running the simulation and running the gap followind node, you should be able to see the car moves in the simulation**
