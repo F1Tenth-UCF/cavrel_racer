@@ -165,3 +165,4 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 Then, press `i` to move forward, `u` and `o` to move forward and turn, `,` to move backwards, `m` and `.` to move backwards and turn, and `k` to stop in the terminal window running the teleop node.
 
+[^1]: Those set of instructions are based on the [Installation Instruction](https://github.com/f1tenth/f1tenth_gym_ros) for F1Tenth Gym ROS Simulation as of 08/28/2024
