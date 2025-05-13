@@ -42,6 +42,8 @@ This is the RoboRacer (F1TENTH) repo of the CAVREL Team. The repo has the follow
 
 This guide walks you through configuring your system to set up the F1Tenth Gym ROS environment [^1]. This repo also content some control algorithms and some maps as well.
 
+[^1]: Those set of instructions are based on the [Installation Instruction](https://github.com/f1tenth/f1tenth_gym_ros) for F1Tenth Gym ROS Simulation as of 08/28/2024
+
 -- *Last Tested: 05/13/2025*
 
 ### Setting Up F1tenth Gym
@@ -171,9 +173,6 @@ To run it, make sure `kb_teleop` is set to `True` in `sim.yaml`. Open another te
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ```
 Then, press `i` to move forward, `u` and `o` to move forward and turn, `,` to move backwards, `m` and `.` to move backwards and turn, and `k` to stop in the terminal window running the teleop node.
-
-[^1]: Those set of instructions are based on the [Installation Instruction](https://github.com/f1tenth/f1tenth_gym_ros) for F1Tenth Gym ROS Simulation as of 08/28/2024
-
 
 ## Run CAVREL Racer Control Algorithm
 
