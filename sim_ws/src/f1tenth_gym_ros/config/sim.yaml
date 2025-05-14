@@ -42,7 +42,7 @@ bridge:
     scan_beams: 1080
 
     # map parameters
-    map_path: '/home/israel/cavrel_racer/sim_ws/src/f1tenth_gym_ros/maps/spielberg'
+    map_path: '/home/israel/cavrel_racer/sim_ws/src/f1tenth_gym_ros/maps/icra2025'
     map_img_ext: '.png'
 
     # opponent parameters
