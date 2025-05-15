@@ -8,7 +8,7 @@ This is the RoboRacer (F1TENTH) repo of the CAVREL Team. The repo has the follow
 ## Prerequisites
 
 - **Ubuntu 20.04 (Focal Fossa)** or **Ubuntu 22.04 (Jammy Jellyfish)** environment
-- **ROS 2 Foxy Fitzroy** or **ROS 2 Humble Hawksbill**
+- **ROS 2 Foxy Fitzroy** or **ROS 2 Humble Hawksbill** (Instructions for ROS Foxy - https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
 - **Python 3** *(Comes with Ros 2)*
 
 ## System preparation
