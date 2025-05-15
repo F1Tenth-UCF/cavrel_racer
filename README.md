@@ -178,10 +178,11 @@ Then, press `i` to move forward, `u` and `o` to move forward and turn, `,` to mo
 
 1. Navigate to the top level parent folder of the repository `cavrel_racer`
 2. Go to the `racer_ws`
-3. Build the workspace
+3. Build the workspace and source the the packages
 
    ```bash
    colcon build
+   source install/local_setup.bash
    ```
 
 4. Run the desired control node
