@@ -176,16 +176,30 @@ Then, press `i` to move forward, `u` and `o` to move forward and turn, `,` to mo
 
 ## Run CAVREL Racer Control Algorithm
 
-1. Navigate to the top level parent folder of the repository `cavrel_racer`
-2. Go to the `racer_ws`
-3. Build the workspace and source the the packages
+1. Open a new terminal
+2. **Source the ROS 2 Setup Script if not Already Sourced**
+   
+   ***Replace `.bash` with `.sh` or `.zsh` depending on your terminal***
+
+   **For ROS2 Foxy:**
+   ```bash
+   source /opt/ros/foxy/setup.bash
+   ```
+
+   **For ROS2 Humble:**
+   ```bash
+   source /opt/ros/humble/setup.bash
+   ```
+3. Navigate to the top level parent folder of the repository `cavrel_racer`
+4. Go to the `racer_ws`
+5. Build the workspace and source the the packages
 
    ```bash
    colcon build
    source install/local_setup.bash
    ```
 
-4. Run the desired control node
+6. Run the desired control node
 
    ex:
 
